@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h1 class="title">Expense Tracker</h1>
+
+<div class="row">
+
+<div class="card">
+<h3>Add Expense</h3>
+<form method="post">
+<input name="title" placeholder="Description">
+<input name="amount" placeholder="Amount">
+<input type="date" name="date">
+
+<select name="category">
+<option>Food</option>
+<option>Shopping</option>
+<option>Bills</option>
+<option>Transport</option>
+</select>
+
+<button>Add</button>
+</form>
+</div>
+
+<div class="card">
+<h3>Total ₹{{total}}</h3>
+
+<table>
+<tr>
+<th>Date</th>
+<th>Desc</th>
+<th>Cat</th>
+<th>Amt</th>
+<th></th>
+</tr>
+
+{% for e in expenses %}
+<tr>
+<td>{{e[5]}}</td>
+<td>{{e[2]}}</td>
+<td>{{e[4]}}</td>
+<td>{{e[3]}}</td>
+<td><a href="/delete/{{e[0]}}" class="delete">✖</a></td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+
+</div>
+
+<div class="charts">
+<canvas id="barChart"></canvas>
+</div>
+
+<script>
+new Chart(document.getElementById('barChart'), {
+    type: 'bar',
+    data: {
+        labels: {{ bar_labels | tojson }},
+        datasets: [{
+            label: 'Expenses',
+            data: {{ bar_values | tojson }}
+        }]
+    }
+});
+</script>
+
+</body>
+</html>

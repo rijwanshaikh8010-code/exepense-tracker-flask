@@ -1,0 +1,69 @@
+body {
+    margin:0;
+    font-family: Arial;
+    background: linear-gradient(120deg,#020617,#0f172a);
+    color:white;
+}
+
+.dark-bg {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login-card {
+    background: rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:12px;
+    width:300px;
+    text-align:center;
+}
+
+.title {
+    text-align:center;
+    padding:20px;
+}
+
+.row {
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    padding:20px;
+    border-radius:12px;
+    width:350px;
+}
+
+input,select,button {
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border:none;
+    border-radius:6px;
+}
+
+button {
+    background:#3b82f6;
+    color:white;
+}
+
+.charts {
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+canvas {
+    background:#1e293b;
+    padding:20px;
+    border-radius:12px;
+}
+
+.delete {
+    color:red;
+    text-decoration:none;
+}
